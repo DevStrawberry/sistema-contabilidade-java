@@ -26,7 +26,6 @@ public class LivroRazao {
     public void registrarTransacao(Transacao novaTransacao) {
         this.transacoes.add(novaTransacao);
         novaTransacao.executar();
-        System.out.println("Transação registrada e executada com sucesso.");
     }
 
     public void exibirSaldos() {

@@ -17,8 +17,14 @@ public class Conta {
 
     public boolean debitar(double valor) {
         if (valor > 0) {
-            this.saldo -= valor;
-            return true;
+            if (saldo >= valor) {
+                this.saldo -= valor;
+                System.out.println("Transação registrada e executada com sucesso.");
+                return true;
+            } else {
+                System.out.println("Erro: Saldo insuficiente.");
+                return false;
+            }
         }
         System.out.println("Erro: Valor do débito deve ser positivo.");
         return false;

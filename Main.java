@@ -16,6 +16,15 @@ public class Main {
                     String nomeConta = sc.next();
                     Conta novaConta = new Conta(nomeConta);
                     meuLivroRazao.adicionarConta(novaConta);
+                    System.out.println("Deseja fazer um depósito inicial para a conta " + nomeConta + "? (s/n):");
+                    char querDepositoInicial = sc.next().toLowerCase().charAt(0);
+                    if (querDepositoInicial != 's') {
+                        break;
+                    } else {
+                        System.out.println("Digite o valor do depósito inical: ");
+                        double valorDepositoInical = sc.nextDouble();
+                        novaConta.creditar(valorDepositoInical);
+                    }
                     break;
                 case 2:
                     System.out.println("Digite a descrição da transação: ");
@@ -61,11 +70,11 @@ public class Main {
     }
 
     static int lerOpcao(Scanner scanner){
-        System.out.println("Opções disponíveis: ");
+        System.out.println("\nOpções disponíveis: ");
         System.out.println("1 - Adicionar Conta");
-        System.out.println("2 - Adicionar Transacao");
+        System.out.println("2 - Adicionar Transação");
         System.out.println("3 - Exibir Saldo");
-        System.out.println("4 - Exibir Transacoes");
+        System.out.println("4 - Exibir Transações");
         System.out.println("Escolha a opção (1-4): ");
         return scanner.nextInt();
     }
